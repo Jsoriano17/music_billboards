@@ -1,2 +1,10 @@
 <h1>Artists#index</h1>
-<p>Find me in app/views/artists/index.html.erb</p>
+<% @artists.each do |artist|%>
+<h2><%= artist.name%><h2>
+<%= link_to 'Show songs', artist_path(artist)%>
+<%= link_to 'Edit songs', edit_artist_path(artist)%>
+<%= link_to 'Delete Artist', artist, method: :delete%>
+<% end %>
+
+<h2>Add New Artist</h2>
+<%= link_to 'New Artist', new_artist_path%>
