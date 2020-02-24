@@ -5,20 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-art1 = Artist.create(name: 'Testing name')
 
-songing = art1.songs.create(name: 'test')
-songing = art1.songs.create(name: 'test 2')
-songing = art1.songs.create(name: 'test 3')
 
-art2 = Artist.create(name: 'Testing name 2')
+5.times do |i|
 
-songing2 = art2.songs.create(name: 'test')
-songing2 = art2.songs.create(name: 'test 2')
-songing2 = art2.songs.create(name: 'test 3')
+    art = Artist.create(name: Faker::Music::RockBand.name)
+    billboard = Billboard.create(name: "Billboard #{i}")
+    song = art.songs.create(name:Faker::Music.album)
 
-art3 = Artist.create(name: 'Testing name 3')
-
-songing3 = art3.songs.create(name: 'test')
-songing3 = art3.songs.create(name: 'test 2')
-songing3 = art3.songs.create(name: 'test 3')
+  end
+  
+  songs = Song.all.where(billboard_id: nil)
+  
