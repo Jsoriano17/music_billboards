@@ -1,7 +1,7 @@
 <h1>Artists#index</h1>
 <% @artists.each do |artist|%>
 <h2><%= artist.name%><h2>
-<%= link_to 'Show songs', artist_path(artist)%>
+<%= link_to 'Show songs', artist_songs_path(artist)%>
 <%= link_to 'Edit songs', edit_artist_path(artist)%>
 <%= link_to 'Delete Artist', artist, method: :delete%>
 <% end %>

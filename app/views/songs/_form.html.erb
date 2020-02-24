@@ -1,6 +1,6 @@
-<%= form_for @song do |f|%>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= form_for [@artist, @song] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, autofocus: true %>
 
-<%= f.submit %>
+  <%= f.submit %>
 <% end %>
