@@ -1,5 +1,5 @@
 class BillboardsController < ApplicationController
-  before_action :set_billboard, only: [:show, :edit, :update, :destroy]
+  before_action :set_billboard, only: [:show, :edit, :update, :destroy, :add_song]
   
   def index
     @billboards = Billboard.all
@@ -42,16 +42,14 @@ class BillboardsController < ApplicationController
   def new_song
     @billboard = Billboard.find(params[:id])
     @songs = Song.all.where(billboard_id: nil)
-    render partial: 'form'
   end
 
   def add_song
-    @billboard = billboard.find(params[:id])
     @billboard.songs << Song.find(params[:song_id])
     redirect_to billboard_path(@billboard)
   end
 
-  def remove_movie
+  def remove_song
     @billboard = Billboard.find(params[:id])
     Song.find(params[:song_id]).update(billboard_id: nil)
     redirect_to billboard_path(@billboard)

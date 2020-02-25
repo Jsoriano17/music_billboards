@@ -13,6 +13,8 @@
     billboard = Billboard.create(name: "Billboard #{i}")
     song = art.songs.create(name:Faker::Music.album)
 
+    
+
   end
   
   songs = Song.all.where(billboard_id: nil)
